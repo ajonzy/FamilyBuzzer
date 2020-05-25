@@ -1,0 +1,51 @@
+.join-wrapper {
+    width: calc(100vw - 50px);
+    min-height: calc(100vh - 32px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0px 20px;
+    background-color: lightskyblue;
+    border: 5px solid blue;
+    padding-top: 22px;
+
+    h5 {
+        margin: 0px;
+        margin-bottom: 5px
+    }
+
+    button {
+        width: 60vh;
+        height: 60vh;
+        text-align: center;
+        border-radius: 100%;
+        border: 2px solid darkred;
+        background-color: red;
+        font-family: 'Chelsea Market', cursive;
+        box-shadow: 5px 5px 5px 1px rgba(0,0,0,0.25);
+        font-size: 300%;
+        transition: .2s;
+        margin-top: 17px;
+
+        &:active {
+            transform: translateY(2px);
+            box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.25);
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+@media(max-width: 400px) {
+    .join-wrapper {
+        button {
+            width: 75vw !important;
+            height: 75vw !important;
+            height: 30px;
+            margin-top: 10vh;
+        }
+    }
+}
