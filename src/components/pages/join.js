@@ -121,7 +121,7 @@ export default function join(props) {
             {!sessionError ? session && host ? <div className="join-wrapper-with-session">
                 <h5>Your session name:<br/>{session.name}</h5>
                 <h5>Session Host:<br/>{host.name}</h5>
-                <button onClick={handleBuzz}>{renderBuzzedText()}</button>
+                <button onClick={handleBuzz} style={{backgroundColor: buzzed ? "limegreen" : "red", borderColor: buzzed ? "green" : "darkred"}}>{renderBuzzedText()}</button>
             </div>
             : <div className="join-wrapper-without-session">
                 <h3>Joining Session...</h3>

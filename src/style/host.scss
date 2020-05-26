@@ -1,6 +1,7 @@
 .host-wrapper {
     width: calc(100vw - 50px);
     min-height: calc(100vh - 10px);
+    min-height: calc((var(--vh, 1vh) * 100) - 10px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,7 +20,7 @@
     }
 }
 
-@media(max-width: 400px) {
+@media(max-width: 480px) {
     .host-wrapper {
         h5 {
             margin-bottom: 20vh;

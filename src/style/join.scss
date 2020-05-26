@@ -10,42 +10,64 @@
     border: 5px solid blue;
     padding-top: 22px;
 
-    h5 {
-        margin: 0px;
-        margin-bottom: 5px
+    .join-wrapper-with-session {
+        h5 {
+            margin: 0px;
+            margin-bottom: 5px
+        }
+    
+        button {
+            width: 60vh;
+            height: 60vh;
+            text-align: center;
+            border-radius: 100%;
+            border: 2px solid darkred;
+            background-color: red;
+            font-family: 'Chelsea Market', cursive;
+            box-shadow: 10px 10px 5px 1px rgba(0,0,0,0.25);
+            font-size: 300%;
+            transition: .1s;
+            margin-top: 17px;
+    
+            &:active {
+                transform: translateY(2px);
+                box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.25);
+            }
+    
+            &:focus {
+                outline: none;
+            }
+        }
     }
 
-    button {
-        width: 60vh;
-        height: 60vh;
-        text-align: center;
-        border-radius: 100%;
-        border: 2px solid darkred;
-        background-color: red;
-        font-family: 'Chelsea Market', cursive;
-        box-shadow: 5px 5px 5px 1px rgba(0,0,0,0.25);
-        font-size: 300%;
-        transition: .2s;
-        margin-top: 17px;
-
-        &:active {
-            transform: translateY(2px);
-            box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.25);
-        }
-
-        &:focus {
-            outline: none;
+    .join-wrapper-with-error {
+        button {
+            width: 122px;
+            text-align: center;
+            border-radius: 5px;
+            border-color: red;
+            background-color: white;
+            font-family: 'Chelsea Market', cursive;
         }
     }
 }
 
-@media(max-width: 400px) {
+@media(max-width: 480) {
     .join-wrapper {
-        button {
-            width: 75vw !important;
-            height: 75vw !important;
-            height: 30px;
-            margin-top: 10vh;
+        .join-wrapper-with-session {
+            button {
+                width: 75vw !important;
+                height: 75vw !important;
+                height: 30px;
+                margin-top: 10vh;
+            }
+        }
+
+        .join-wrapper-with-error {
+            button {
+                width: calc(75vw + 2px);
+                height: 30px;
+            }
         }
     }
 }
