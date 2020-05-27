@@ -24,6 +24,7 @@
     .host-wrapper {
         h5 {
             margin-bottom: 20vh;
+            margin-bottom: calc((var(--vh, 1vh) * 20));
         }
         button {
             width: calc(75vw + 2px) !important;

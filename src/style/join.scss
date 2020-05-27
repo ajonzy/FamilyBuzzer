@@ -1,7 +1,7 @@
 .join-wrapper {
     width: calc(100vw - 50px);
     min-height: calc(100vh - 32px);
-    min-height: calc((var(--vh, 1vh) * 100) - 10px);
+    min-height: calc((var(--vh, 1vh) * 100) - 32px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,7 +19,9 @@
     
         button {
             width: 60vh;
+            width: calc((var(--vh, 1vh) * 60));
             height: 60vh;
+            height: calc((var(--vh, 1vh) * 60));
             text-align: center;
             border-radius: 100%;
             border: 2px solid darkred;
@@ -61,6 +63,7 @@
                 height: 75vw !important;
                 height: 30px;
                 margin-top: 10vh;
+                margin-top: calc((var(--vh, 1vh) * 10));
             }
         }
 
