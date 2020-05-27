@@ -83,6 +83,7 @@
         .choice-wrapper {
             height: 50vh;
             height: calc((var(--vh, 1vh) * 50));
+            min-height: 250px;
 
             h6 {
                 margin: 20px;
