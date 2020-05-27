@@ -1,6 +1,7 @@
 .home-wrapper {
     width: calc(100vw - 50px);
     min-height: calc(100vh - 10px);
+    min-height: calc((var(--vh, 1vh) * 100) - 10px);
     display: flex;
     flex-direction: column;
     align-items: center;
