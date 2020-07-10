@@ -6,8 +6,8 @@ import Host from "./pages/host"
 import Join from "./pages/join"
 
 export default class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       name: "",
@@ -15,10 +15,15 @@ export default class App extends Component {
     }
 
     this.handleUpdate = this.handleUpdate.bind(this)
+    this.handleSessionClear = this.handleSessionClear.bind(this)
   }
 
   handleUpdate = (target) => {
     this.setState({ [target]: event.target.value.toUpperCase() })
+  }
+
+  handleSessionClear() {
+    this.setState({ session: "" })
   }
 
   render() {
@@ -28,8 +33,8 @@ export default class App extends Component {
           <div>
             <Switch>
               <Route exact path="/" render={props => <Home {...props} handleUpdate={this.handleUpdate} name={this.state.name} session={this.state.session} />} />
-              <Route path="/host" render={props => <Host {...props} name={this.state.name} />} />
-              <Route path="/join" render={props => <Join {...props} name={this.state.name} session={this.state.session} />} />
+              <Route path="/host" render={props => <Host {...props} name={this.state.name} socket={this.props.socket} />} />
+              <Route path="/join" render={props => <Join {...props} name={this.state.name} session={this.state.session} handleSessionClear={this.handleSessionClear} socket={this.props.socket} />} />
             </Switch>
           </div>
         </BrowserRouter>
