@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react'
+import io from 'socket.io-client';
 
 export default function host(props) {
+    const [socket, updateSocket] = useState()
     const [name] = useState(props.name ? props.name[0].toUpperCase() + props.name.slice(1) : "")
     const [session, updateSession] = useState("")
     const [buzzerList, updateBuzzerList] = useState([])
 
-    const socket = props.socket
     let sess
 
     if (!props.name) {
         props.history.push("/")
     } else {
         useEffect(() => {
+            const socket = io('https://jonesfamilybuzzerapi.herokuapp.com/')
+            updateSocket(socket)
+
             socket.on("session_created", data => {
                 updateSession(data.session)
                 sess = data.session
@@ -24,6 +28,10 @@ export default function host(props) {
             })
             
             socket.emit('host_user', { host: name })
+
+            return () => {
+                socket.disconnect()
+            }
         }, [])
     }
 
