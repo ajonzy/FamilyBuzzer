@@ -42,9 +42,11 @@ export default function join(props) {
                 }
             })
             
-            socket.on("buzzers_cleared", () => {
-                updateBuzzerList([])
-                updateBuzzed(false)
+            socket.on("buzzers_cleared", data => {
+                if (data.session === session) {
+                    updateBuzzerList([])
+                    updateBuzzed(false)
+                }
             })
 
             socket.on("host_disconnect", data => {
