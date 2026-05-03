@@ -7,7 +7,7 @@ import App from "./components/app";
 import reducers from "./reducers";
 import io from 'socket.io-client';
 
-const socket = io('https://jonesfamilybuzzerapi.herokuapp.com/')
+const socket = io(process.env.API_BASE_URL || '')
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 

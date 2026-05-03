@@ -55,6 +55,7 @@ module.exports = webpackMerge(webpackCommon, {
             {
               loader: "sass-loader",
               options: {
+                implementation: require("sass"),
                 outputStyle: "expanded",
                 sourceMap: true,
                 sourceMapContents: true
@@ -93,7 +94,11 @@ module.exports = webpackMerge(webpackCommon, {
     }),
     new DefinePlugin({
       "process.env": {
-        NODE_ENV: '"production"'
+        NODE_ENV: '"production"',
+        API_BASE_URL: JSON.stringify(
+          process.env.API_BASE_URL ||
+            "https://jonesfamilybuzzerapi.herokuapp.com"
+        )
       }
     }),
     new ExtractTextPlugin("[name]-[chunkhash].min.css"),

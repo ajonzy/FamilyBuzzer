@@ -46,6 +46,7 @@ module.exports = webpackMerge(webpackCommon, {
           {
             loader: 'sass-loader',
             options: {
+              implementation: require('sass'),
               outputStyle: 'expanded',
               sourceMap: true,
               sourceMapContents: true
@@ -60,7 +61,11 @@ module.exports = webpackMerge(webpackCommon, {
   plugins: [
     new DefinePlugin({
       'process.env': {
-        NODE_ENV: "'development'"
+        NODE_ENV: "'development'",
+        API_BASE_URL: JSON.stringify(
+          process.env.API_BASE_URL ||
+            'https://jonesfamilybuzzerapi.herokuapp.com'
+        )
       }
     }),
     new HtmlWebpackPlugin({
